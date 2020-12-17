@@ -1,8 +1,7 @@
 #!/bin/bash
-mkdir -p ./grafana-data;
-chown 472:472 ./grafana-data;
-mkdir ./influx-data;
-mkdir ./influx-conf;
-mkdir ./influx-backup;
-echo "Done";
+sudo mkdir -p ./grafana-data;
+sudo chown 472:472 ./grafana-data;
+sudo mkdir ./influx-data;
+sudo mkdir ./influx-backup;
+echo "Pre-config Done";
 docker-compose up -d;
