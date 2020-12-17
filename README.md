@@ -4,4 +4,4 @@
       # - CREATE USER look WITH PASSWORD 'look'
       # - GRANT READ ON "test" to "look"
 
-      # sudo mkdir -p ./grafanadata; chown 472:472 ./grafanadata
+      # sudo mkdir -p ./grafana-data; chown 472:472 ./grafana-data
