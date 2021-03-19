@@ -1,33 +1,33 @@
 version: '2'
 services:
 
-  influxdb:
-    container_name: influxdb
-    restart: always
-    image: influxdb
-    mem_limit: 500m
-    ports: 
-      - 8083:8083
-      - 8086:8086
-      - 8090:8090
-    volumes: 
-      - './influx-data/:/var/lib/influxdb/'
-      - './influx-conf/:/etc/influxdb/'
-      - './influx-backup/:/backup/'
-    environment:
-      - INFLUXDB_ADMIN_USER=admin
-      - INFLUXDB_ADMIN_PASSWORD=admin
-    networks: 
-      combus:
-        ipv4_address: 172.171.0.2
+#  influxdb:
+#    container_name: influxdb
+#    restart: always
+#    image: influxdb
+#    mem_limit: 500m
+#    ports: 
+#      # - 8083:8083
+#      - 8086:8086
+#      # - 8090:8090
+#    volumes: 
+#      - './influx-data/:/var/lib/influxdb/'
+#      - './influx-conf/:/etc/influxdb/'
+#      - './influx-backup/:/backup/'
+#    environment:
+#      - INFLUXDB_ADMIN_USER=admin
+#      - INFLUXDB_ADMIN_PASSWORD=admin
+#    networks: 
+#     combus:
+#        ipv4_address: 172.171.0.2
 
   grafana:
     container_name: grafana
     restart: always
     image: grafana/grafana
     mem_limit: 200m
-    links:
-      - influxdb:influxdb
+#    links:
+#      - influxdb:influxdb
     ports:
       - 3000:3000
     user: "472"
@@ -36,16 +36,16 @@ services:
     environment:
       - HTTP_USER=admin
       - HTTP_PASS=admin
-    depends_on:
-      - influxdb
-    networks: 
-      combus:
-        ipv4_address: 172.171.0.3
+#    depends_on:
+#      - influxdb
+#    networks: 
+#      combus:
+#        ipv4_address: 172.171.0.3
 
-networks:
-  combus:
-    driver: bridge
-    ipam:
-     config:
-      - subnet: 172.171.0.0/29
-        gateway: 172.171.0.1
+#networks:
+#  combus:
+#    driver: bridge
+#    ipam:
+#     config:
+#      - subnet: 172.171.0.0/29
+#        gateway: 172.171.0.1
